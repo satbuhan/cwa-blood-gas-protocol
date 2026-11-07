@@ -65,39 +65,40 @@ This is a working version, built to be tested on both desktop and mobile.
 - **Every one of the manuscript's 83 references was run through independent
   verification** against a primary source (DOI resolution plus a
   title/author/journal/subject-matter check), not accepted from the
-  condensed document's own reference list.
-  - **57 references verified clean.**
-  - **4 references corrected** after verification — 2 publication-year
+  condensed document's own reference list. 66 were checked in the same
+  turn as the build; the remaining 17, which initially hit the session's
+  shared web-search budget limit, were completed in a follow-up pass once
+  the budget reset on a later turn. All 83 are now resolved — none left
+  unchecked.
+  - **73 references verified clean.**
+  - **5 references corrected** after verification — 2 publication-year
     corrections (refs 19, 31 — an epub-ahead-of-print year was cited
     instead of the print year), 1 further publication-year correction
-    (ref 57), and 1 title mismatch (ref 62 — the manuscript's bracketed
-    English title doesn't match the real French title). Each correction is
-    recorded in that reference's own `kind` field in `assets/content.js`.
+    (ref 57), 1 title mismatch (ref 62 — the manuscript's bracketed
+    English title doesn't match the real French title), and 1 more
+    publication-year correction found in the follow-up pass (ref 78 —
+    cited as 2008, the DOI's epub date, but the indexed print year is
+    2010). Each correction is recorded in that reference's own `kind`
+    field in `assets/content.js`.
   - **5 references flagged NOT VERIFIED — likely fabricated or
     non-existent** (refs 27, 28, 29, 71, 73): exhaustive, multi-angle
     independent searching (exact title, DOI, author combination, and a
     check of the journal's own table of contents) found no trace of any of
-    these five, anywhere. This is the same fabricated-reference failure
-    mode seen before in this atlas — but this is the first time it has
-    shown up in a manuscript that passed through an external AI
-    condensation step first, and five turning up in one pass is the most
-    of any tool so far. Whether the fabrication originated in the original
-    manuscript or was introduced during AI condensation could not be
-    determined, since the original manuscript text was never uploaded to
-    this session. Two of these five (refs 28, 29) are cited directly on
-    the `mgmt_b` node, which carries its own explicit caveat in the
-    readout panel; the other three are not cited on any node but remain
-    fully visible, with the same honest flag, in the References panel.
-  - **17 references could not be checked at all this build** (refs 5,
-    9–15, 74–78, 80–83) — the session's shared web-search budget was
-    exhausted by the parallel verification passes before reaching them,
-    and a dedicated solo follow-up pass immediately hit the same
-    turn-wide limit. This is a tooling limitation, not a finding about
-    those papers — several (refs 9–15) are well-known standard EBM
-    methodology citations (PRISMA 2020, RoB 2, ROBINS-I, QUADAS-2, SYRCLE,
-    GRADE) that were simply never reached. Each is marked
-    `unable-to-verify-budget` in its own `kind` field. **A follow-up pass
-    should complete this once a fresh search budget is available.**
+    these five, anywhere. A follow-up pass specifically rechecked all five
+    using different search angles (bare-DOI search, explicit DOI-resolution
+    attempts, author-only search) to rule out a false fabrication flag —
+    same result every time, still no trace anywhere. This is the same
+    fabricated-reference failure mode seen before in this atlas — but this
+    is the first time it has shown up in a manuscript that passed through
+    an external AI condensation step first, and five turning up in one
+    pass is the most of any tool so far. Whether the fabrication
+    originated in the original manuscript or was introduced during AI
+    condensation could not be determined, since the original manuscript
+    text was never uploaded to this session. Two of these five (refs 28,
+    29) are cited directly on the `mgmt_b` node, which carries its own
+    explicit caveat in the readout panel; the other three are not cited on
+    any node but remain fully visible, with the same honest flag, in the
+    References panel.
 - The diagram's trunk, the 3-way pattern-recognition fan-out, the matching
   3-way management row, and the closing reassessment box were transcribed
   directly from the authors' own Figure 2 image (inspected directly, not

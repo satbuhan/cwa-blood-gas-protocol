@@ -25,19 +25,29 @@
    Every one of the manuscript's 83 references was run through independent
    verification against a primary source (DOI resolution plus a
    title/author/journal/subject-matter check), not accepted from the
-   condensed document's own reference list. Outcome:
-     - 57 references independently verified clean.
-     - 4 references corrected after verification — 2 publication-year
+   condensed document's own reference list. First pass (same turn as the
+   build) covered 66 references; a budget-exhaustion gap of 17 references
+   was closed in a follow-up pass once the search-tool budget reset on a
+   later turn — see below. Final outcome, all 83 references resolved:
+     - 73 references independently verified clean.
+     - 5 references corrected after verification — 2 publication-year
        corrections (refs 19, 31: epub-ahead-of-print year cited instead of
        print year), 1 publication-year correction with a distinct-companion-
-       paper check (ref 57), and 1 title-mismatch (ref 62: bracketed English
-       title in the manuscript does not match the real French title).
+       paper check (ref 57), 1 title-mismatch (ref 62: bracketed English
+       title in the manuscript does not match the real French title), and
+       1 further publication-year correction found in the follow-up pass
+       (ref 78: cited as 2008, the DOI's epub-ahead-of-print date, but the
+       indexed print year is 2010 — same epub-vs-print pattern as 19/31/57).
      - 5 references flagged NOT VERIFIED — likely fabricated or non-existent
        (refs 27, 28, 29, 71, 73): exhaustive, multi-angle independent
        searching (exact title, DOI, author-combination, journal
        table-of-contents) found no trace of any of these five anywhere.
-       This is the same fabricated-reference failure mode seen before in
-       this atlas (nsaid-pain-protocol, ketamine-head-injury-protocol,
+       A follow-up recheck pass tried genuinely different search angles on
+       all five specifically to rule out a false fabrication flag (bare-DOI
+       search, explicit DOI-resolution attempts, author-only search) and
+       got the same result for every one — still no trace anywhere. This is
+       the same fabricated-reference failure mode seen before in this atlas
+       (nsaid-pain-protocol, ketamine-head-injury-protocol,
        tenecteplase-alteplase-stemi-protocol's ref 73) — except this time
        five turned up in one pass, the most of any tool so far, and it is
        the first time this failure mode has shown up specifically in a
@@ -49,18 +59,12 @@
        directly on the `mgmt_b` node, which carries its own explicit
        caveat; the other three are not cited on any node but remain fully
        visible, with this same honest flag, in the References panel.
-     - 17 references (refs 5, 9-15, 74-78, 80-83) could not be checked at
-       all this build — the session's shared web-search budget was
-       exhausted by the four parallel verification agents before reaching
-       them, and a dedicated solo follow-up pass immediately hit the same
-       turn-wide limit (the budget is shared across the whole turn, not
-       reset per agent). This is a tooling limitation, not a finding about
-       those papers — several of them (refs 9-15) are well-known standard
-       EBM methodology citations (PRISMA 2020, RoB 2, ROBINS-I, QUADAS-2,
-       SYRCLE, GRADE) that were simply never reached, not found to be
-       wrong. These are flagged `unable-to-verify-budget` in each
-       reference's own `kind` field and should be completed in a follow-up
-       pass once a fresh search budget is available.
+     - 0 references left unchecked. The 17 that initially hit the shared
+       web-search budget limit (refs 5, 9-15, 74-78, 80-83) — several of
+       them well-known standard EBM methodology citations (PRISMA 2020,
+       RoB 2, ROBINS-I, QUADAS-2, SYRCLE, GRADE) — were all independently
+       completed in the follow-up pass: 16 verified clean, 1 corrected
+       (ref 78, see above).
 
    This is a shorter, 10-box decision algorithm built from an 83-reference
    systematic review, so not every reference is cited on a specific node —
@@ -97,7 +101,7 @@ const REFERENCES = [
   },
   {
     id: 5,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Vincent, J.L., Quintairos e Silva, A., Couto, L. and Taccone, F.S. (2016) 'The value of blood lactate kinetics in critically ill patients: a systematic review', Critical Care, 20(1), 257.",
     url: "https://doi.org/10.1186/s13054-016-1403-5"
   },
@@ -121,43 +125,43 @@ const REFERENCES = [
   },
   {
     id: 9,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Page, M.J., McKenzie, J.E., Bossuyt, P.M., Boutron, I., Hoffmann, T.C., Mulrow, C.D. et al. (2021) 'The PRISMA 2020 statement: an updated guideline for reporting systematic reviews', BMJ, 372, n71.",
     url: "https://doi.org/10.1136/bmj.n71"
   },
   {
     id: 10,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Sterne, J.A.C., Savović, J., Page, M.J., Elbers, R.G., Blencowe, N.S., Boutron, I. et al. (2019) 'RoB 2: a revised tool for assessing risk of bias in randomised trials', BMJ, 366, l4898.",
     url: "https://doi.org/10.1136/bmj.l4898"
   },
   {
     id: 11,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Sterne, J.A.C., Hernán, M.A., Reeves, B.C., Savović, J., Berkman, N.D., Viswanathan, M. et al. (2016) 'ROBINS-I: a tool for assessing risk of bias in non-randomised studies of interventions', BMJ, 355, i4919.",
     url: "https://doi.org/10.1136/bmj.i4919"
   },
   {
     id: 12,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Whiting, P.F., Rutjes, A.W.S., Westwood, M.E., Mallett, S., Deeks, J.J., Reitsma, J.B. et al. (2011) 'QUADAS-2: a revised tool for the quality assessment of diagnostic accuracy studies', Annals of Internal Medicine, 155(8), pp. 529-536.",
     url: "https://doi.org/10.7326/0003-4819-155-8-201110180-00009"
   },
   {
     id: 13,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Hooijmans, C.R., Rovers, M.M., de Vries, R.B.M., Leenaars, M., Ritskes-Hoitinga, M. and Langendam, M.W. (2014) 'SYRCLE's risk of bias tool for animal studies', BMC Medical Research Methodology, 14, 43.",
     url: "https://doi.org/10.1186/1471-2288-14-43"
   },
   {
     id: 14,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Guyatt, G.H., Oxman, A.D., Vist, G.E., Kunz, R., Falck-Ytter, Y., Alonso-Coello, P. et al. (2008) 'GRADE: an emerging consensus on rating quality of evidence and strength of recommendations', BMJ, 336(7650), pp. 924-926.",
     url: "https://doi.org/10.1136/bmj.39489.470347.AD"
   },
   {
     id: 15,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Guyatt, G., Oxman, A.D., Akl, E.A., Kunz, R., Vist, G., Brozek, J. et al. (2011) 'GRADE guidelines: 1. Introduction-GRADE evidence profiles and summary of findings tables', Journal of Clinical Epidemiology, 64(4), pp. 383-394.",
     url: "https://doi.org/10.1016/j.jclinepi.2010.04.026"
   },
@@ -229,19 +233,19 @@ const REFERENCES = [
   },
   {
     id: 27,
-    kind: "NOT VERIFIED — likely fabricated or non-existent. No trace found via extensive searching: exact title ('Emergency risk stratification for early respiratory failure in acute pesticide poisoning: a nomogram prediction model'), the DOI (10.1093/postmj/qgag002), and the author combination (Wang Q, Luo Y, Wu Y) in connection with Postgraduate Medical Journal all returned zero matching results across many search variations. Other, unrelated papers on similar topics exist (e.g. Korean PREP-score papers, a diquat poisoning nomogram paper) but none match this citation's title/authors/journal/DOI. This appears to be a non-existent/fabricated reference — classic failure mode of a citation with no trace via title/author/DOI search.",
+    kind: "NOT VERIFIED — likely fabricated or non-existent. No trace found via extensive searching: exact title ('Emergency risk stratification for early respiratory failure in acute pesticide poisoning: a nomogram prediction model'), the DOI (10.1093/postmj/qgag002), and the author combination (Wang Q, Luo Y, Wu Y) in connection with Postgraduate Medical Journal all returned zero matching results across many search variations. Other, unrelated papers on similar topics exist (e.g. Korean PREP-score papers, a diquat poisoning nomogram paper) but none match this citation's title/authors/journal/DOI. This appears to be a non-existent/fabricated reference — classic failure mode of a citation with no trace via title/author/DOI search. [Rechecked in a follow-up pass with genuinely different search angles (bare-DOI search, DOI resolution attempts, author-only search, checking whether the DOI points to a different real paper) — same result, still no trace found anywhere.]",
     text: "Wang, Q., Luo, Y., Wu, Y. et al. (2026) 'Emergency risk stratification for early respiratory failure in acute pesticide poisoning: a nomogram prediction model', Postgraduate Medical Journal, 102(1209), pp. 680-688.",
     url: "https://doi.org/10.1093/postmj/qgag002"
   },
   {
     id: 28,
-    kind: "NOT VERIFIED — likely fabricated or non-existent. No trace found via extensive searching: exact title ('PGI Score: A Promising Alternative to Serum Cholinesterase for Predicting Mortality and Adverse Outcomes in Acute Organophosphorus Poisoning: A Cross-Sectional Study'), the DOI (10.1111/bcpt.70145), and the author combination (Sagah GA, Sobeeh FG, Nassar EH, Selim AF, Sharif AF) all returned zero matching results. Checked an Assiut University faculty profile page for an author named Sagah — their 2024-2025 publication list contains unrelated papers (renal toxicity, milk microbiology, cardiology), with no PGI-score/organophosphorus paper. No evidence this paper exists — appears to be a non-existent/fabricated reference.",
+    kind: "NOT VERIFIED — likely fabricated or non-existent. No trace found via extensive searching: exact title ('PGI Score: A Promising Alternative to Serum Cholinesterase for Predicting Mortality and Adverse Outcomes in Acute Organophosphorus Poisoning: A Cross-Sectional Study'), the DOI (10.1111/bcpt.70145), and the author combination (Sagah GA, Sobeeh FG, Nassar EH, Selim AF, Sharif AF) all returned zero matching results. Checked an Assiut University faculty profile page for an author named Sagah — their 2024-2025 publication list contains unrelated papers (renal toxicity, milk microbiology, cardiology), with no PGI-score/organophosphorus paper. No evidence this paper exists — appears to be a non-existent/fabricated reference. [Rechecked in a follow-up pass with genuinely different search angles (bare-DOI search, DOI resolution attempts, author-only search, checking whether the DOI points to a different real paper) — same result, still no trace found anywhere.]",
     text: "Sagah, G.A., Sobeeh, F.G., Nassar, E.H., Selim, A.F. and Sharif, A.F. (2025) 'PGI Score: A Promising Alternative to Serum Cholinesterase for Predicting Mortality and Adverse Outcomes in Acute Organophosphorus Poisoning: A Cross-Sectional Study', Basic & Clinical Pharmacology & Toxicology, 137(6), e70145.",
     url: "https://doi.org/10.1111/bcpt.70145"
   },
   {
     id: 29,
-    kind: "NOT VERIFIED — likely fabricated or non-existent. No trace found via extensive searching: exact title ('Early Markers in Severe Organophosphorus Poisoning and Their Association with Mortality'), the DOI (10.1016/j.jemermed.2024.12.004), and the author combination (Parrey AH, Koka M, Ismail M, Ashraf M, Lone H) all returned zero matching results in The Journal of Emergency Medicine or anywhere else. Many other organophosphorus-poisoning-marker papers exist from other author groups, but none match this one. Appears to be a non-existent/fabricated reference.",
+    kind: "NOT VERIFIED — likely fabricated or non-existent. No trace found via extensive searching: exact title ('Early Markers in Severe Organophosphorus Poisoning and Their Association with Mortality'), the DOI (10.1016/j.jemermed.2024.12.004), and the author combination (Parrey AH, Koka M, Ismail M, Ashraf M, Lone H) all returned zero matching results in The Journal of Emergency Medicine or anywhere else. Many other organophosphorus-poisoning-marker papers exist from other author groups, but none match this one. Appears to be a non-existent/fabricated reference. [Rechecked in a follow-up pass with genuinely different search angles (bare-DOI search, DOI resolution attempts, author-only search, checking whether the DOI points to a different real paper) — same result, still no trace found anywhere.]",
     text: "Parrey, A.H., Koka, M., Ismail, M., Ashraf, M. and Lone, H. (2024) 'Early Markers in Severe Organophosphorus Poisoning and Their Association with Mortality', The Journal of Emergency Medicine, 73, pp. 95-101.",
     url: "https://doi.org/10.1016/j.jemermed.2024.12.004"
   },
@@ -493,7 +497,7 @@ const REFERENCES = [
   },
   {
     id: 71,
-    kind: "NOT VERIFIED — likely fabricated or non-existent. No trace found. Extensive searching (exact title phrase \"Temporal evaluation of lung injury following chlorine Inhalation in a ventilated pig model\", the DOI 10.1080/08958378.2024.2433762, author names Neal/Harvilchuck/Pressburger/Coley/Hu combined with 'chlorine inhalation pig', and journal+volume+page combination 'Inhalation Toxicology' 36 521-537) returned zero matching results across multiple independent searches. Only unrelated chlorine-inhalation pig studies (e.g., Watkins et al., Perrott et al.) surfaced instead. This citation does not appear to exist anywhere via title/author/DOI search -- confirmed failure mode 2.",
+    kind: "NOT VERIFIED — likely fabricated or non-existent. No trace found. Extensive searching (exact title phrase \"Temporal evaluation of lung injury following chlorine Inhalation in a ventilated pig model\", the DOI 10.1080/08958378.2024.2433762, author names Neal/Harvilchuck/Pressburger/Coley/Hu combined with 'chlorine inhalation pig', and journal+volume+page combination 'Inhalation Toxicology' 36 521-537) returned zero matching results across multiple independent searches. Only unrelated chlorine-inhalation pig studies (e.g., Watkins et al., Perrott et al.) surfaced instead. This citation does not appear to exist anywhere via title/author/DOI search -- confirmed failure mode 2. [Rechecked in a follow-up pass with genuinely different search angles (bare-DOI search, DOI resolution attempts, author-only search, checking whether the DOI points to a different real paper) — same result, still no trace found anywhere.]",
     text: "Neal, M., Harvilchuck, J., Pressburger, D., Coley, W. and Hu, T.C. (2024) 'Temporal evaluation of lung injury following chlorine Inhalation in a ventilated pig model', Inhalation toxicology, 36(9-10), pp. 521-537.",
     url: "https://doi.org/10.1080/08958378.2024.2433762"
   },
@@ -505,37 +509,37 @@ const REFERENCES = [
   },
   {
     id: 73,
-    kind: "NOT VERIFIED — likely fabricated or non-existent. No trace found. Extensive searching (exact title phrase \"A longitudinal characterization of cardiopulmonary and systemic injury following acute chlorine inhalation in rats\", the DOI 10.1016/j.taap.2026.118062, author names Jadhav/Johns/Zafar/Ahmad combined with 'chlorine inhalation rats cardiopulmonary', and journal 'Toxicology and Applied Pharmacology' + article number '118062') returned zero matching results across multiple independent searches -- no article, preprint, or index record with this title/author/DOI combination exists in any searchable source. This citation does not appear to exist anywhere -- confirmed failure mode 2.",
+    kind: "NOT VERIFIED — likely fabricated or non-existent. No trace found. Extensive searching (exact title phrase \"A longitudinal characterization of cardiopulmonary and systemic injury following acute chlorine inhalation in rats\", the DOI 10.1016/j.taap.2026.118062, author names Jadhav/Johns/Zafar/Ahmad combined with 'chlorine inhalation rats cardiopulmonary', and journal 'Toxicology and Applied Pharmacology' + article number '118062') returned zero matching results across multiple independent searches -- no article, preprint, or index record with this title/author/DOI combination exists in any searchable source. This citation does not appear to exist anywhere -- confirmed failure mode 2. [Rechecked in a follow-up pass with genuinely different search angles (bare-DOI search, DOI resolution attempts, author-only search, checking whether the DOI points to a different real paper) — same result, still no trace found anywhere.]",
     text: "Jadhav, G.R., Johns, A.J., Zafar, I., Ahmad, A. and Ahmad, S. (2026) 'A longitudinal characterization of cardiopulmonary and systemic injury following acute chlorine inhalation in rats', Toxicology and applied pharmacology, 517, 118062.",
     url: "https://doi.org/10.1016/j.taap.2026.118062"
   },
   {
     id: 74,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Alishlash, A.S., Sapkota, M., Ahmad, I. et al. (2021) 'Chlorine inhalation induces acute chest syndrome in humanized sickle cell mouse model and ameliorated by postexposure hemopexin', Redox biology, 44, 102009.",
     url: "https://doi.org/10.1016/j.redox.2021.102009"
   },
   {
     id: 75,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Li, W. and Pauluhn, J. (2017) 'Phosgene-induced acute lung injury (ALI): differences from chlorine-induced ALI and attempts to translate toxicology to clinical medicine', Clinical and translational medicine, 6(1), 19.",
     url: "https://doi.org/10.1186/s40169-017-0149-2"
   },
   {
     id: 76,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Yadav, A.K., Bracher, A., Doran, S.F. et al. (2010) 'Mechanisms and modification of chlorine-induced lung injury in animals', Proceedings of the American Thoracic Society, 7(4), pp. 278-83.",
     url: "https://doi.org/10.1513/pats.201001-009SM"
   },
   {
     id: 77,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Li, W., Liu, F., Wang, C., Truebel, H. and Pauluhn, J. (2012) 'Novel insights into phosgene-induced acute lung injury in rats: role of dysregulated cardiopulmonary reflexes and nitric oxide in lung edema pathogenesis', Toxicological Sciences, 131(2), pp. 612-628.",
     url: "https://doi.org/10.1093/toxsci/kfs317"
   },
   {
     id: 78,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Corrected after independent verification: Title/authors/journal/volume/issue/pages confirmed exactly (Wang, L., Liu, C., Zhang, H. et al., 'Intravenous administration of hyperoxygenated solution attenuates pulmonary edema formation in phosgene-induced acute lung injury in rabbits', The Journal of Surgical Research, 164(1), pp. 131-138) via an independent published reference list and a PubMed/MEDLINE mirror (PMID 20959170). However, the correct publication year is 2010, not 2008 as given in the manuscript -- the DOI (10.1016/j.jss.2008.09.017) reflects a 2008 epub-ahead-of-print date, but the formal print year is 2010 (Elsevier copyright year confirmed as 2010). Same epub-vs-print-year pattern as references 19, 31 and 57.",
     text: "Wang, L., Liu, C., Zhang, H. et al. (2008) 'Intravenous administration of hyperoxygenated solution attenuates pulmonary edema formation in phosgene-induced acute lung injury in rabbits', The Journal of Surgical Research, 164(1), pp. 131-138.",
     url: "https://doi.org/10.1016/j.jss.2008.09.017"
   },
@@ -547,25 +551,25 @@ const REFERENCES = [
   },
   {
     id: 80,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "de Lange, D.W. and Meulenbelt, J. (2011) 'Do corticosteroids have a role in preventing or reducing acute toxic lung injury caused by inhalation of chemical agents?', Clinical toxicology (Philadelphia, Pa.), 49(2), pp. 61-71.",
     url: "https://doi.org/10.3109/15563650.2011.553196"
   },
   {
     id: 81,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Luo, S., Pauluhn, J., Trübel, H. and Wang, C. (2014) 'Corticosteroids found ineffective for phosgene-induced acute lung injury in rats', Toxicology letters, 229(1), pp. 85-92.",
     url: "https://doi.org/10.1016/j.toxlet.2014.06.011"
   },
   {
     id: 82,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Smith, A., Brown, R., Jugg, B. et al. (2009) 'The effect of steroid treatment with inhaled budesonide or intravenous methylprednisolone on phosgene-induced acute lung injury in a porcine model', Military medicine, 174(12), pp. 1287-94.",
     url: "https://doi.org/10.7205/milmed-d-09-00050"
   },
   {
     id: 83,
-    kind: "Not independently verified this build — this session's shared web-search tool budget was exhausted before this reference could be checked (a dedicated follow-up pass was attempted and immediately hit the same turn-wide limit). This is a tooling limitation, not a finding about the paper; verify independently before relying on it clinically. See README's Status section.",
+    kind: "Independently verified against a primary source (DOI resolution; title, authors, journal, year and subject matter confirmed).",
     text: "Rendell, R., Fairhall, S., Graham, S. et al. (2018) 'Assessment of N-acetylcysteine as a therapy for phosgene-induced acute lung injury', Toxicology letters, 290, pp. 145-152.",
     url: "https://doi.org/10.1016/j.toxlet.2018.03.025"
   },
